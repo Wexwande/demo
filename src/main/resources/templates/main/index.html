@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Создание заявки</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/creation_of_requests}" th:object="${myModel}">
+<div>
+    <label for="name">Заявка</label>
+    <input type="text" name="name" id="name" value=""/>
+    <br/>
+</div>
+<div>
+    <label for="responsible">Ответственный</label>
+    <input type="text" name="responsible" id="responsible" value=""/>
+    <br/>
+</div>
+<div>
+    <label for="customerInformation">Информация о заказчике</label>
+    <input type="text" name="customerInformation" id="customerInformation" value=""/>
+    <br/>
+</div>
+<input type="submit" value="Готово"/>
+    </form>
+<a  href="/">Список заявок</a>
+<a  href="/auth/login">Сменить пользователя</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявки</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Заявка</th>
+        <th>Дата начала</th>
+        <th>Дата изменения</th>
+        <th>Статус заявки</th>
+        <th>Ответственный</th>
+        <th>Информация о клиенте</th>
+        <th></th>
+    </tr>
+    <tr th:each="app: ${list}">
+        <td th:text="${app.name}"></td>
+        <td th:text="${app.startDate}"></td>
+        <td th:text="${app.recentDate}"></td>
+        <td th:text="${app.statusReadiness}"></td>
+        <td th:text="${app.responsible}"></td>
+        <td th:text="${app.customerInformation}"></td>
+        <td><a th:href="@{/{id}(id=${app.id})}">Редактировать заявку</a></td>
+        <td><a th:href="@{/{id}/complete(id=${app.id})}">Выполнить заявку</a></td>
+
+    </tr>
+</table>
+<a  href="/auth/login">Сменить пользователя</a>
+</body>
+</html>

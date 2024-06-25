@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Обновление заявки</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/{id}(id=${app.getId()})}" th:object="${app}">
+    <div>
+        <label for="name">Заявка</label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <br/>
+    </div>
+    <div>
+        <label for="responsible">Ответственный</label>
+        <input type="text" th:field="*{responsible}" id="responsible"/>
+        <br/>
+    </div>
+    <div>
+        <label for="customerInformation">Информация о заказчике</label>
+        <input type="text" th:field="*{customerInformation}" id="customerInformation"/>
+        <br/>
+    </div>
+    <input type="submit" value="Готово"/>
+</form>
+<a  href="/">Список заявок</a>
+<a  href="/auth/login">Сменить пользователя</a>
+</body>
+</html>
