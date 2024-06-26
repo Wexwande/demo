@@ -1,5 +1,5 @@
 package com.example.demo.security;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import com.example.demo.models.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
