@@ -26,12 +26,12 @@ private final MyUserDetailsService myUserDetailsService;
         this.myUserDetailsService = myUserDetailsService;
     }
 
-    @Bean
+   /* @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
-    }
-   /* public DaoAuthenticationProvider authProvider() {
+    }*/
+    public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(myUserDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -43,7 +43,7 @@ private final MyUserDetailsService myUserDetailsService;
        return http.getSharedObject(AuthenticationManagerBuilder.class)
                .authenticationProvider(authProvider())
                .build();
-   }*/
+   }
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
