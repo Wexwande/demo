@@ -26,7 +26,7 @@ private final MyUserDetailsService myUserDetailsService;
     }
 
 
-    public DaoAuthenticationProvider authProvider() {
+   /* public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(myUserDetailsService);
         authProvider.setPasswordEncoder(passwordEncoder());
@@ -38,7 +38,7 @@ private final MyUserDetailsService myUserDetailsService;
        return http.getSharedObject(AuthenticationManagerBuilder.class)
                .authenticationProvider(authProvider())
                .build();
-   }
+   }*/
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
