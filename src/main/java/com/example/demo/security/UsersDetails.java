@@ -11,7 +11,7 @@ import java.util.Collections;
 public class UsersDetails implements UserDetails {
     private final User user;
 
-
+    @Autowired
     public UsersDetails(User user) {
         this.user = user;
     }
