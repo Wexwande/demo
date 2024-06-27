@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("auth")
 public class AuthController {
     private final RegistrationService registrationService;
     @Autowired
@@ -20,16 +20,16 @@ public class AuthController {
 
     @GetMapping("/login")
     public String loginPage(){
-        return "/auth/login";
+        return "auth/login";
     }
     @GetMapping("/registration")
     public String registrationPage(@ModelAttribute("user") User user){
-        return "/auth/registration";
+        return "auth/registration";
     }
 
     @PostMapping("/registration")
     public String performRegistration(@ModelAttribute("user") User user){
         registrationService.register(user);
-        return "redirect:/auth/login";
+        return "redirect:auth/login";
     }
 }
