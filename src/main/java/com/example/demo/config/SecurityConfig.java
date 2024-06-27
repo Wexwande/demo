@@ -74,15 +74,11 @@ private final MyUserDetailsService myUserDetailsService;
 
 
 
-    @Bean
-    public AuthenticationManager authenticationManager(
-            MyUserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService);
-        authenticationProvider.setPasswordEncoder(passwordEncoder);
-
-        return new ProviderManager(authenticationProvider);
+   @Bean
+    public AuthenticationManager authenticationManagerBean(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder authenticationManagerBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder.userDetailsService(myUserDetailsService).passwordEncoder(passwordEncoder());
+        return authenticationManagerBuilder.build();
     }
 
 
