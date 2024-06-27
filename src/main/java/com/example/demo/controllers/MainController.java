@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class MainController {
     private final MyService myService;
     @Autowired
@@ -59,15 +59,15 @@ public class MainController {
     }*/
     @GetMapping()
     public String showsRequests(Model model){
-        // Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        // UsersDetails usersDetails = (UsersDetails) authentication.getPrincipal();
-        // if (myService.isAdmin(usersDetails.getUser())){
-        //     model.addAttribute("list", myService.receiveApplications());
-        //     return "main/applications";
-        // }else {
-        //     return showsUserRequests(model);
-        // }
-        return "main/error";
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        UsersDetails usersDetails = (UsersDetails) authentication.getPrincipal();
+        if (myService.isAdmin(usersDetails.getUser())){
+            model.addAttribute("list", myService.receiveApplications());
+            return "main/applications";
+        }else {
+            return showsUserRequests(model);
+        }
+        
     }
 
     @GetMapping("/user_request")
