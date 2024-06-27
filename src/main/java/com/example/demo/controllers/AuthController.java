@@ -30,6 +30,6 @@ public class AuthController {
     @PostMapping("/registration")
     public String performRegistration(@ModelAttribute("user") User user){
         registrationService.register(user);
-        return "redirect:auth/login";
+        return "redirect:login";
     }
 }
